@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+* { box-sizing: border-box;    /* 너비높이를 경계선 기준으로 고정 */
+    font-family: "Nanum Gothic", sans-serif; /* 폰트가 적용되지 않을 경우 대체 폰트 지정 */
+    outline: none;
+  }  
+
+html { font-size: 13px; 
+       color: #000; } /* = 1rem */
+body { margin: 0; }
+
+/* 태그들의 기본 스타일 제거 */
+a { text-decoration: none; color: #000; }  /* 기본으로 나오는 밑줄 제거 */
+ul, ol { list-style: none; margin: 0; padding: 0; } /* 기본 들여쓰기 제거 */
+li, dl, dt, dd { margin: 0; padding: 0; }
+img { border: 0; }
+h1, h2, h3 { margin:0; padding:0, }
+.layout-width { max-width: 1380px;
+                min-width: 1280px; 
+                margin: 0 auto; /*auto: 여백을 좌우로 균등하게*/
+                padding: 0 10px; 
+            }

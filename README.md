@@ -10,4 +10,6 @@
 - axios : ajax
 - i18next, react-i18next : 메시징, 다국어 처리
   (= internationalization)
-- react-helmat-async : head 태그 내부 구성을 변경할 때
+- react-helmet-async : head 태그 내부 구성을 변경할 때
+
+#초기 구성 - index.js
