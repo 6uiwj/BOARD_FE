@@ -70,6 +70,7 @@ const LoginForm = ({ onChange, onSubmit, form, errors }) => {
         />
 
         <MessageBox messages={errors.email} color="danger" />
+
         <InputText
           type="password"
           name="password"

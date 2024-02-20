@@ -1,13 +1,24 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import LoginForm from '../components/LoginForm';
 import { produce } from 'immer';
+// import UserContext from '../modules/UserContext';
+// import { UserConsumer } from '../modules/UserContext'; //
+import UserContext from '../modules/UserContext';
 
 const LoginContainer = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
 
   const { t } = useTranslation();
+
+  // const {
+  //   state : {isLogin},
+  //   actions : { setIsLogin},
+  // } = useContext(UserContext);
+
+  // const value = useContext(UserContext);
+  // console.log(value);
 
   const onChange = useCallback(
     (e) =>
@@ -49,12 +60,47 @@ const LoginContainer = () => {
     [form, t],
   );
   return (
-    <LoginForm
-      onChange={onChange}
-      onSubmit={onSubmit}
-      form={form}
-      errors={errors}
-    />
+    <>
+      <LoginForm
+        onChange={onChange}
+        onSubmit={onSubmit}
+        form={form}
+        errors={errors}
+      />
+
+      {/* <UserConsumer>
+        {({ state, actions }) => (
+          <>
+            <div>로그인 상태 : {state.isLogin ? '로그인' : '미로그인'}</div>
+            <button
+              type="button"
+              onClick={() => actions.setIsLogin(!state.isLogin)}
+            >
+              변경
+            </button>
+          </>
+        )}
+      </UserConsumer> */}
+      {/* 
+      <UserContext.Consumer>
+        {/* //값을 담고 있는 value 값이 넘어옴 */}
+      {/* 컨슈머랑 컨테이너에서 함수형태로 넘어옴? value 계속 쓰기 귀찮으니까 비구조할당으로....넣어줌 */}
+      {/* 값을 바꾸기 위해 provide 사용 */}
+      {/* {({value}) => ( */}
+      {/*
+      {({ isLogin, userInfo }) => (
+        <>
+          <div>Login: {isLogin}</div>
+          <div>email: {userInfo.email}</div>
+        </>
+      )}
+       </UserContext.Consumer> */}
+
+      {/* <div>로그인: {isLogin ? "로그인" : "미로그인"}</div>
+       <button type="button" onClick={() => setIsLogin(!isLogin)}>
+       확인
+       </button> */}
+    </>
   );
 };
 
