@@ -6,7 +6,7 @@ import { MainTitle } from '../../commons/components/TitleStyle';
 import { ShadowBox } from '../../commons/components/ContentBoxStyle';
 
 const JoinPage = () => {
-  const { t } = useTranslation;
+  const { t } = useTranslation();
   return (
     <>
       <Helmet>

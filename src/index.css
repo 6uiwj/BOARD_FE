@@ -20,3 +20,6 @@ h1, h2, h3 { margin:0; padding:0, }
                 margin: 0 auto; /*auto: 여백을 좌우로 균등하게*/
                 padding: 0 10px; 
             }
+
+/* 여백 공통 */
+.mt20 { margin-top: 20px !important;}
