@@ -6,17 +6,19 @@ import { FiLock, FiKey, FiUserPlus } from 'react-icons/fi';
 import { InputText } from '../../commons/components/InputBoxStyle';
 import { MediumButton } from '../../commons/components/ButtonStyle';
 import { fontsize } from '../../styles/size';
+import MessageBox from '../../commons/components/MessageBox';
+
 const { medium } = fontsize;
 
 const LoginBox = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: calc(100%-315px);
   left: 0;
-  top: 191px;
+  top: 211px;
 
   .inner {
     width: 350px;
@@ -40,30 +42,43 @@ const LoginBox = styled.form`
       width: 0;
       flex-grow: 1;
       text-align: center;
+      line-height: 1;
 
       svg {
         vertical-align: middle;
       }
     }
-
+  }
     button {
       margin-top: 10px;
     }
   }
 `;
 
-const LoginForm = () => {
+const LoginForm = ({ onChange, onSubmit, form, errors }) => {
   const { t } = useTranslation();
   return (
-    <LoginBox>
+    <LoginBox onSubmit={onSubmit} autocomplete="off">
       <div className="inner">
         <h1>{t('로그인')}</h1>
-        <InputText type="text" name="eamil" placeholder={t('이메일')} />
+        <InputText
+          type="text"
+          name="eamil"
+          placeholder={t('이메일')}
+          onChange={onChange}
+          value={form.email}
+        />
+
+        <MessageBox messages={errors.email} color="danger" />
         <InputText
           type="password"
           name="password"
           placeholder={t('비밀번호')}
+          onChange={onChange}
+          value={form.password}
         />
+
+        <MessageBox messages={errors.password} color="danger" />
 
         <MediumButton type="submit" bcolor="primary" fcolor="#fff">
           {t('로그인')}
