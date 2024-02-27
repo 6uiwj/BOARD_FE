@@ -11,7 +11,6 @@ import UserContext from '../../member/modules/UserContext';
 import logo from '../../images/logo.png';
 import color from '../../styles/color';
 import { fontsize } from '../../styles/size';
-import cookies from 'react-cookies';
 import { logout } from '../../member/apis/apiLogin';
 
 const { primary, secondary, dark } = color;

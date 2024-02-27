@@ -57,7 +57,7 @@ const Side = () => {
         classNames={({ isActive }) => classNames({ on: isActive })}
       >
         {t('게시판_관리')}
-        <FiUsers />
+        <FiEdit />
       </NavLink>
     </AsideBox>
   );

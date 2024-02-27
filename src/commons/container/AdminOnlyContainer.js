@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import UserContext from '../../member/modules/UserContext';
 import loadable from '@loadable/component'; //지연로딩
 
