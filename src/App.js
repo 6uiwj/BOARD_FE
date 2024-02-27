@@ -2,22 +2,36 @@ import { Routes, Route } from 'react-router-dom';
 import loadable from '@loadable/component';
 import MainLayout from './layouts/front/MainLayout';
 
+const AdminMainLayout = loadable(() => import('./layouts/admin/MainLayout'));
+
 const MainPage = loadable(() => import('./main/pages/MainPage'));
 const NotFound = loadable(() => import('./commons/pages/NotFound'));
 
 /* 회원 관련 페이지 S */
-const JoinPage = loadable(() => import('./member/pages/JoinPage')); //회원가입
-const LoginPage = loadable(() => import('./member/pages/LoginPage')); //로그인
-
+const JoinPage = loadable(() => import('./member/pages/JoinPage')); // 회원가입
+const LoginPage = loadable(() => import('./member/pages/LoginPage')); // 로그인
 /* 회원 관련 페이지 E */
 
 /* 마이페이지 S */
-const MyMainPage = loadable(() => import('./mypage/pages/MainPage')); //마이페이지 메인
+const MyMainPage = loadable(() => import('./mypage/pages/MainPage')); // 마이페이지 메인
 /* 마이페이지 E */
 
-/* 관리자페이지 S */
-const AdminMainPage = loadable(() => import('./admin/pages/MainPage')); //관리자메인페이지
-/* 관리자페이지 E */
+/* 관리자 페이지 S */
+const AdminMainPage = loadable(() => import('./admin/pages/MainPage')); // 관리자 메인페이지
+
+/* 기본설정 S */
+const BasicConfigPage = loadable(() =>
+  import('./admin/config/pages/BasicConfigPage'),
+);
+
+/* 기본설정 E */
+
+/* 회원관리  S */
+const MemberListPage = loadable(() =>
+  import('./admin/member/pages/MemberListPage'),
+);
+/* 회원관리  E */
+/* 관리자 페이지 E */
 
 const App = () => {
   return (
@@ -38,14 +52,16 @@ const App = () => {
         </Route>
         {/* 마이페이지 E */}
 
-        {/* 관리자 페이지S */}
-        <Route path="admin/">
-          <Route index element={<AdminMainPage />} />
-        </Route>
-        {/* 관리자 페이지E */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+
+      {/* 관리자 페이지 S */}
+      <Route path="/admin" element={<AdminMainLayout />}>
+        <Route index element={<AdminMainPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>
+      {/* 관리자 페이지 E */}
     </Routes>
   );
 };

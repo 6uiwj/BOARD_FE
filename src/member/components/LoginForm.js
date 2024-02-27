@@ -69,21 +69,13 @@ const LoginForm = ({ onChange, onSubmit, form, errors }) => {
           value={form.email}
         />
 
-        <MessageBox messages={errors.email} color="danger" />
-
-        <InputText
-          type="password"
-          name="password"
-          placeholder={t('비밀번호')}
-          onChange={onChange}
-          value={form.password}
-        />
-
         <MessageBox messages={errors.password} color="danger" />
 
         <MediumButton type="submit" bcolor="primary" fcolor="#fff">
           {t('로그인')}
         </MediumButton>
+
+        <MessageBox messages={errors.global} color="danger" />
 
         <div className="links">
           <Link to="/member/find_id">

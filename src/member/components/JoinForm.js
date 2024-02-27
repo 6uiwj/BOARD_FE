@@ -70,6 +70,8 @@ const JoinForm = ({ onSubmit, onChange, onToggle, form, errors }) => {
 
       <MessageBox messages={errors.agree} color="danger" />
 
+      <MessageBox messages={errors.global} color="danger" />
+
       <MediumButton
         type="submit"
         bcolor="primary"

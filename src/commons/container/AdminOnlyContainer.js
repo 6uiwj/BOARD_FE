@@ -1,18 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import UserContext from '../../member/modules/UserContext';
-import { useNavigate } from '../../../node_modules/react-router-dom/dist/index';
+import loadable from '@loadable/component'; //지연로딩
+
+const UnAuthorized = loadable(() => import('../pages/UnAuthorized'));
 
 const AdminOnlyContainer = ({ children }) => {
   const {
     state: { isAdmin },
   } = useContext(UserContext);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAdmin) navigate(-1);
-  }, [isAdmin, navigate]);
-
-  return children;
+  return isAdmin ? children : <UnAuthorized />;
 };
 
 export default React.memo(AdminOnlyContainer);

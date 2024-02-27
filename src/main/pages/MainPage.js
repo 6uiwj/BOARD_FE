@@ -1,5 +1,4 @@
 import React from 'react';
-import loadable from '@loadable/component';
 
 const MainPage = () => {
   /*

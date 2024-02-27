@@ -17,6 +17,7 @@ const LoginPage = () => {
       >
         <LoginContainer />
       </UserContext.Provider> */}
+      <LoginContainer />
     </>
   );
 };
