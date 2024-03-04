@@ -36,6 +36,12 @@ const MemberListPage = loadable(() =>
 const BoardListPage = loadable(() =>
   import('./admin/board/pages/BoardListPage'),
 );
+
+const BoardAddPage = loadable(() => import('./admin/board/pages/BoardAddPage'));
+const BoardEditPage = loadable(() =>
+  import('./admin/board/pages/BoardEditPage'),
+);
+
 /* 게시판관리  E */
 /* 관리자 페이지 E */
 
