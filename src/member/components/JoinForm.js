@@ -6,6 +6,9 @@ import { SubTitle } from '../../commons/components/TitleStyle';
 import { FiSquare, FiCheckSquare } from 'react-icons/fi';
 import { MediumButton } from '../../commons/components/ButtonStyle';
 import MessageBox from '../../commons/components/MessageBox';
+import FileUpload from '../../commons/components/FileUpload';
+import ImageBox from '../../commons/components/ImageBox';
+import ConfirmBox from '../../commons/components/ConfirmBox';
 
 const TermsBox = styled.div`
   margin: 10px 0;
@@ -18,7 +21,14 @@ const TermsBox = styled.div`
   }
 `;
 
-const JoinForm = ({ onSubmit, onChange, onToggle, form, errors }) => {
+const JoinForm = ({
+  onSubmit,
+  onChange,
+  onToggle,
+  form,
+  errors,
+  fileUploadCallback,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -58,6 +68,19 @@ const JoinForm = ({ onSubmit, onChange, onToggle, form, errors }) => {
         value={form.name}
       />
       <MessageBox messages={errors.name} color="danger" />
+
+      {form.profileImage && <ImageBox image={form.profileImage} thumb={true} />}
+
+      <ConfirmBox open={true}>정말 삭제?</ConfirmBox>
+
+      <FileUpload
+        gid={form.gid}
+        imageOnly={true}
+        single={true}
+        onSuccess={fileUploadCallback}
+      >
+        {t('프로필_이미지_업로드')}
+      </FileUpload>
 
       <SubTitle align="center" className="mt20">
         {t('가입약관')}
