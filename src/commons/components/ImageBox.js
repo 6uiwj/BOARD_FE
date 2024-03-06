@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { FaWindowClose } from 'react-icons/fa';
 import ConfirmBox from './ConfirmBox';
-import { fileDelete } from '../../member/apis/apiFile';
+import { fileDelete } from '../apis/apiFile';
 
 const Box = styled.div``;
 
@@ -33,7 +33,6 @@ const ImageBox = ({ image, thumb }) => {
         <Box>
           <FaWindowClose onClick={onClick} />
           <img src={imageUrl} alt="img" />
-
           {open && (
             <ConfirmBox open={open} onConfirm={onConfirm} onCancel={onCancel}>
               {t('정말_이미지를_삭제하겠습니까?')}

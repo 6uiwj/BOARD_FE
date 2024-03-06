@@ -8,7 +8,7 @@ const BoardListPage = () => {
   return (
     <>
       <Helmet>
-        <title>{t('게시판목록')}</title>
+        <title>{t('게시판_목록')}</title>
       </Helmet>
     </>
   );

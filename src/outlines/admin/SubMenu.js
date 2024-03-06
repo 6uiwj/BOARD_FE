@@ -4,7 +4,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getSubMenus } from '../../admin/menus';
 import classNames from 'classnames';
-import { useCallback } from 'react';
 
 const NavBox = styled.nav`
   box-shadow: 2px 2px 10px #212121;
@@ -14,14 +13,14 @@ const NavBox = styled.nav`
   display: flex;
 
   a {
-    padding: 0 20px;
+    padding: 0 25px;
     line-height: 50px;
     font-size: 1.25rem;
-  }
 
-  &.on {
-    background: #212121;
-    color: #fff;
+    &.on {
+      background: #212121;
+      color: #fff;
+    }
   }
 `;
 

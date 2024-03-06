@@ -34,7 +34,7 @@ export const MediumButton = styled.button`
   ${commonStyle}
 `;
 
-export const BitButton = styled.button`
+export const BigButton = styled.button`
   min-width: ${big.width}px;
   height: ${big.height}px;
   font-size: ${({ size }) => fontsize[size] || fontsize.big}rem;

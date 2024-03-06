@@ -8,7 +8,6 @@ import { MediumButton } from '../../commons/components/ButtonStyle';
 import MessageBox from '../../commons/components/MessageBox';
 import FileUpload from '../../commons/components/FileUpload';
 import ImageBox from '../../commons/components/ImageBox';
-import ConfirmBox from '../../commons/components/ConfirmBox';
 
 const TermsBox = styled.div`
   margin: 10px 0;
@@ -42,6 +41,7 @@ const JoinForm = ({
       />
 
       <MessageBox messages={errors.email} color="danger" />
+
       <InputText
         type="password"
         name="password"
@@ -49,16 +49,18 @@ const JoinForm = ({
         onChange={onChange}
         value={form.password}
       />
+
       <MessageBox messages={errors.password} color="danger" />
 
       <InputText
         type="password"
-        name="comfirmPassword"
-        placeholder={t('비밀번호 확인')}
+        name="confirmPassword"
+        placeholder={t('비밀번호_확인')}
         onChange={onChange}
-        value={form.confirmpassword}
+        value={form.confirmPassword}
       />
-      <MessageBox messages={errors.confirmpassword} color="danger" />
+
+      <MessageBox messages={errors.confirmPassword} color="danger" />
 
       <InputText
         type="text"
@@ -67,11 +69,10 @@ const JoinForm = ({
         onChange={onChange}
         value={form.name}
       />
+
       <MessageBox messages={errors.name} color="danger" />
 
       {form.profileImage && <ImageBox image={form.profileImage} thumb={true} />}
-
-      <ConfirmBox open={true}>정말 삭제?</ConfirmBox>
 
       <FileUpload
         gid={form.gid}
@@ -85,7 +86,7 @@ const JoinForm = ({
       <SubTitle align="center" className="mt20">
         {t('가입약관')}
       </SubTitle>
-      <Textarea defaultValue="약관" />
+      <Textarea defaultValue="약관..." />
       <TermsBox onClick={onToggle}>
         {form.agree ? <FiCheckSquare /> : <FiSquare />}
         {t('가입약관에_동의합니다.')}
@@ -105,7 +106,6 @@ const JoinForm = ({
       </MediumButton>
     </form>
   );
-  // input보다는 스타일이 입혀져있는 공통적인 컴포넌트로 빼자
 };
 
 export default React.memo(JoinForm);
