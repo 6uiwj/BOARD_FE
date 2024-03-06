@@ -23,7 +23,14 @@ const FormBox = styled.form`
   }
 `;
 
-const BoardConfigForm = ({ form, onChange, onActive, onAuthority, errors }) => {
+const BoardConfigForm = ({
+  form,
+  onChange,
+  onActive,
+  onAuthority,
+  errors,
+  onSubmit,
+}) => {
   const { t } = useTranslation();
   form = form || {};
   errors = errors || {};

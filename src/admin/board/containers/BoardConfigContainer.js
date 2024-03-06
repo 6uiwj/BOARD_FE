@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import BoardConfigForm from '../components/BoardConfigForm';
 
 const BoardConfigContainer = ({ mode }) => {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     mode,
     active: false,
@@ -30,9 +32,32 @@ const BoardConfigContainer = ({ mode }) => {
     [],
   );
 
-  const onSubmit = useCallback((e) => {
-    e.preventDefault();
-  }, []);
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      const required = {
+        bid: t('게시판_아이디를_입력하세요'),
+        bName: t('게시판_이름을_입력하세요.'),
+      };
+
+      const _errors = {};
+      let hasErrors = false;
+      for (const [key, value] of Object.entries(required)) {
+        _errors[key] = _errors[key] || [];
+
+        if (!form[key] || !form[key].trim()) {
+          _errors[key].push(value);
+          hasErrors = true;
+        }
+      }
+      setErrors(_errors);
+      if (hasErrors) {
+        return;
+      }
+    },
+    [t, form],
+  );
 
   return (
     <BoardConfigForm
